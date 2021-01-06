@@ -177,8 +177,4 @@ Settings -> 左栏Branches，把默认分支改成main（记得点update），
    
    [超级版（不建议）](https://github.com/wangziyingwen/AutoApiS)：进一步升级版，增加自定义参数、模式。按目前情况，微软续订要求很低，暂时不需要使用此项目。
 
-### 最后 ###
-有修改建议可以发邮件给我:
-wz.lxh@outlook.com
-  
-基安id-卷腿毛菌
+-----wangziyingwen
