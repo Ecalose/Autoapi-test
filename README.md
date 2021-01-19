@@ -1,24 +1,42 @@
-
-# AutoApiP发布 （2021-1-9） #
-
-* 整合S版跟新方法（更新toekn进secret）
-___________________________
-# Push Change报错（2021-1-2） #
-**2021-1-3 push-action作者再次更改，现在需要手动指定更新分支**
-
-~~两种办法（二选一，建议第一种）：~~
-
-~~1，Settings -> Branches里，把默认分支改成main。~~
-
-~~2，参考[issues](https://github.com/wangziyingwen/AutoApiSecret/issues/51)提供的方案:~~
-   ~~在yml文件最后加一句branch:master~~
+# 目录 #
+* 续期相关知识 
+* 问题&出错
+* 更新日志
 
 --------------
+
+# 续期相关 #
+
+   * 续期方面：
+     * 1、只有剩30天及以下才会触发续期
+     * 2、非实时检测活跃度进行续期，微软会在某一个时间集合进行续期。这就会导致在这个时间点前，可能会收到过期/不活跃的通知。
+     * 3、过期后可以在订阅界面找到“请告诉我”的按钮、发工单等，联系微软手动复核续期。
+      
+~~# 永久停更 #~~
+
+1，如没有出现重大bug将不会再进行任何更新完善。
+       
+   这是项目本身决定的，因为续期**目的已达到**，不再需要进行更新。
+
+~~2，issues里有人提了几个比较好的优化方案。
+      
+ ~~由于1的原因，不打算进行集成，有想了解可自行前去探讨。~~
+   
+
+
+# 问题&出错 #
+
+  * 以下问题均是老版（非P版的问题）
+  
+  * **P版出现的报错及解决方案已经写进程序，详细请看action日志报告**
+
+一，**Push Change 报错（Secret,s,sr版专属问题，P版忽略。2021-1-2号首次出现）**
+
 解决办法（之一）：
 
-Settings -> 左栏Branches，把默认分支改成main（记得点update），
+   Settings -> 左栏Branches，把默认分支改成main（记得点update），
 
-然后在.github/workflow/....yml文件最后回车加一句（注意跟上一行对齐，branch:空格main，格式错误会有下划线提醒）
+   然后在.github/workflow/....yml文件最后回车加一句（注意跟上一行对齐，branch:空格main，格式错误会有下划线提醒）
                          
        branch: main
 
@@ -32,25 +50,7 @@ Settings -> 左栏Branches，把默认分支改成main（记得点update），
 
 （此问题于2021-1-3出现，此时间点后新弄的应该是不存在此问题的）
 
-
-
-
-
-# 永久停更 #
-
-1，如没有出现重大bug将不会再进行任何更新完善。
-       
-   这是项目本身决定的，因为续期**目的已达到**，不再需要进行更新。
-
-2，issues里有人提了几个比较好的优化方案。
-      
-   由于1的原因，不打算进行集成，有想了解可自行前去探讨。
-   
-
-
-# 问题&出错 #
-
-一，**部署过程中**出错：
+二，**部署过程中**出错：
 
 1，提示 refresh_token 错误
 
@@ -60,7 +60,7 @@ Settings -> 左栏Branches，把默认分支改成main（记得点update），
        
        原因：refresh_token格式错误、设置里的id/机密位置混乱了
 
-       解决办法：首先确认设置secret里的id、机密是否填对位置。然后清除浏览器缓存，再用rclone重新获取refresh_token替换1.txt的内容，注意格式，末尾不要有空格/空行。（强烈建议按视频一步步操作）
+       解决办法：首先确认设置secret里的id、机密是否填对位置。然后清除浏览器缓存，再用rclone重新获取refresh_token替换相关内容，注意格式，末尾不要有空格/空行。（强烈建议按视频一步步操作）
 
 2，提示 *** 错误
 
@@ -90,7 +90,7 @@ Settings -> 左栏Branches，把默认分支改成main（记得点update），
   
   
 
-二，**正常运行后的**出错
+三，**正常运行后的**出错
 
 1，之前正常运行，莫名其妙出错 并 提示 refresh_token 错误
 
@@ -120,28 +120,23 @@ Settings -> 左栏Branches，把默认分支改成main（记得点update），
  
  
  
-三，**子号**运行的问题
+四，**子号**运行的问题
       
-      如若需要子号运行，请用管理员登录管理页面找到子号注册的应用，点击“代表管理员授权”。
- 
- 
-四，其他问题
+      如若需要子号运行，请用管理员登录管理页面找到子号注册的应用，点击“代表管理员授权”。        
 
-      续期方面：
-              1、只有剩30天及以下才会触发续期
-              2、非实时检测活跃度进行续期，微软会在某一个时间集合进行续期。这就会导致在这个时间点前，可能会收到过期/不活跃的通知。
-              3、过期后可以在订阅界面找到“请告诉我”的按钮、发工单等，联系微软手动复核续期。
-      
-      其他账号问题：
-              啥登陆要验证、邮箱登不了、onedrive登不了等等一系列，请找微软客服！
-             
+五，其他账号问题：
+
+      啥登陆要验证、邮箱登不了、onedrive登不了等等一系列，请找微软客服！
            
 ------------------
 
-### 更新日志 ###
+# 更新日志 #
 
-**加以区分，Autoapi-test为旧版（有大bug，项目名字为这个的，必须更新），AutoApi 、AutoApiSecret、AutoApiSR、AutoApiS为新版（项目名字为这两个的，无bug，不用更新）**
 
+* 更新 1-9-2021 
+  * AutoApiP发布
+  
+        整合S版跟新方法（更新toekn进secret）
 
 * 修复 5-21-2020(18:20)
   * 重新上传AutoApiSR模拟人为开发版
@@ -167,18 +162,19 @@ Settings -> 左栏Branches，把默认分支改成main（记得点update），
 -------------------
 
 # 请跳转：
-* 普通版项目地址：https://github.com/wangziyingwen/AutoApi
+* ~~普通版项目地址：https://github.com/wangziyingwen/AutoApi~~
 * 加密版项目地址：https://github.com/wangziyingwen/AutoApiSecret
-* 模仿人为开发版：https://github.com/wangziyingwen/AutoApiSR
-* 超级版地址: https://github.com/wangziyingwen/AutoApiS
+* ~~模仿人为开发版：https://github.com/wangziyingwen/AutoApiSR~~
+* ~~超级版地址: https://github.com/wangziyingwen/AutoApiS~~
+* P版地址：https://github.com/wangziyingwen/AutoApiP
 
 ### 区别 ###
-   [普通版（弃用）](https://github.com/wangziyingwen/AutoApi)：密钥暴露，不在乎的话可以使用
+   ~~[普通版（弃用）](https://github.com/wangziyingwen/AutoApi)：密钥暴露，不在乎的话可以使用~~
    
    [加密版（推荐）](https://github.com/wangziyingwen/AutoApiSecret)：应用id机密加密隐藏，提高安全性
 
-   [模仿人为应用开发版（半弃用）](https://github.com/wangziyingwen/AutoApiSR)：顾名思义，加密版的升级版。由于超级版兼容模拟版的功能，此版本处于一种尴尬位置。（当然也可以正常使用）
+   ~~[模仿人为应用开发版（半弃用）](https://github.com/wangziyingwen/AutoApiSR)：顾名思义，加密版的升级版。由于超级版兼容模拟版的功能，此版本处于一种尴尬位置。（当然也可以正常使用）~~
    
-   [超级版（不建议）](https://github.com/wangziyingwen/AutoApiS)：进一步升级版，增加自定义参数、模式。按目前情况，微软续订要求很低，暂时不需要使用此项目。
+   ~~[超级版（不建议）](https://github.com/wangziyingwen/AutoApiS)：进一步升级版，增加自定义参数、模式。按目前情况，微软续订要求很低，暂时不需要使用此项目。~~
 
 -----wangziyingwen
